@@ -11,27 +11,19 @@ class BadASS::Toy
     @type = toy_hash['type'].capitalize
     @cumtube = toy_hash['cumtube']
     @suction_cup = toy_hash['suction_cup']
-    @images = toy_hash['images'].map{|toy| toy['fullFilename']}
+    @images = toy_hash['images'].map { |toy| toy['fullFilename'] }
   end
 
   def name
-    BadASS::BAD_DRAGON_SKUS[self.sku]
+    BadASS::BAD_DRAGON_SKUS[sku]
   end
 
   def cumtube?
-    if @cumtube == 1
-      true
-    else
-      false
-    end
+    @cumtube == 1
   end
 
   def suction_cup?
-    if @suction_cup == 1
-      true
-    else
-      false
-    end
+    @suction_cup == 1
   end
 
   attr_reader :id
