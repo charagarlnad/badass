@@ -35,7 +35,6 @@ class BadASS::Toy
   attr_reader :id
   attr_reader :sku
   attr_reader :size
-  attr_reader :firmness
   attr_reader :price
   attr_reader :weight
   attr_reader :color
