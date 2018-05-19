@@ -1,5 +1,6 @@
 class BadASS::Client
   # Creates a client to do operations.
+  # Takes a :refresh_time argument to define how often the toy list should be refreshed.
   def initialize(refresh_time: 600)
     Thread.new do
       @toys = []

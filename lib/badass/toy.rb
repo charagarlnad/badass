@@ -1,4 +1,5 @@
 class BadASS::Toy
+  # Create a Toy object using a hash from the API.
   def initialize(toy_hash)
     @id = toy_hash['id']
     @sku = toy_hash['sku']
