@@ -16,6 +16,9 @@ Style/FrozenStringLiteralComment:
 Style/NumericPredicate:
   EnforcedStyle: comparison
 
+Style/RescueModifier:
+  Enabled: false
+
 Style/RescueStandardError:
   EnforcedStyle: implicit
 

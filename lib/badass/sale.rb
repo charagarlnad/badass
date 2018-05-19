@@ -4,8 +4,8 @@ class BadASS::Sale
     @title = sale_hash['title']
     @description = JSON.parse(sale_hash['content'])['blocks'].map { |x| x['text'] }.join("\n")
     @image = sale_hash['image']['url']
-    @start_date = DateTime.rfc3339(sale_hash['startDate']) rescue nil
-    @end_date = DateTime.rfc3339(sale_hash['endDate']) rescue nil
+    @start_date = Date.rfc3339(sale_hash['startDate']) rescue nil
+    @end_date = Date.rfc3339(sale_hash['endDate']) rescue nil
   end
 
   attr_reader :title
