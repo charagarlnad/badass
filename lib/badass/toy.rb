@@ -1,17 +1,47 @@
 class BadASS::Toy
   def initialize(toy_hash)
-    @id = toy_hash['id'] || 000000
-    @title = video_hash[:title] || 'N/A'
-    @url = video_hash[:webpage_url] || 'N/A'
-    @thumbnail_url = video_hash[:thumbnail] || Bot::HBOT.profile.avatar_url
-    @like_count = video_hash[:like_count] || 'N/A'
-    @dislike_count = video_hash[:dislike_count] || 'N/A'
-    @view_count = video_hash[:view_count] || 'N/A'
-    @length = video_hash[:duration] || 0
-    @location = video_hash[:filename] + '.mp4'
-    @loop = false
-    @event = event
-    @skipped_time = 0
-    @filters = video_hash[:filters] || []
+    @id = toy_hash['id']
+    @sku = toy_hash['sku']
+    @size = toy_hash['size']
+    @price = toy_hash['price']
+    @weight = toy_hash['weight']
+    @color = toy_hash['color']
+    @colors = [toy_hash['color1'], toy_hash['color2'], toy_hash['color3']]
+    @flop_reason = toy_hash['flop_reason'].capitalize
+    @type = toy_hash['type'].capitalize
+    @cumtube = toy_hash['cumtube']
+    @suction_cup = toy_hash['suction_cup']
+    @images = toy_hash['images'].map{|toy| toy['fullFilename']}
   end
+
+  def name
+    BadASS::BAD_DRAGON_SKUS[self.sku]
+  end
+
+  def cumtube?
+    if @cumtube == 1
+      true
+    else
+      false
+    end
+  end
+
+  def suction_cup?
+    if @suction_cup == 1
+      true
+    else
+      false
+    end
+  end
+
+  attr_reader :id
+  attr_reader :sku
+  attr_reader :size
+  attr_reader :price
+  attr_reader :weight
+  attr_reader :color
+  attr_reader :colors
+  attr_reader :flop_reason
+  attr_reader :type
+  attr_reader :images
 end
