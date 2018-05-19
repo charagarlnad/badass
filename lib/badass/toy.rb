@@ -4,6 +4,7 @@ class BadASS::Toy
     @id = toy_hash['id']
     @sku = toy_hash['sku']
     @size = toy_hash['size']
+    @firmness = toy_hash['firmness']
     @price = toy_hash['price']
     @weight = toy_hash['weight']
     @color = toy_hash['color']
@@ -16,7 +17,7 @@ class BadASS::Toy
   end
 
   def name
-    BadASS::BAD_DRAGON_SKUS[sku]
+    BadASS::BAD_DRAGON_SKUS[@sku]
   end
 
   def cumtube?
@@ -27,9 +28,14 @@ class BadASS::Toy
     @suction_cup == 1
   end
 
+  def firmness
+    BadASS::FIRMNESSES[@firmness]
+  end
+
   attr_reader :id
   attr_reader :sku
   attr_reader :size
+  attr_reader :firmness
   attr_reader :price
   attr_reader :weight
   attr_reader :color
