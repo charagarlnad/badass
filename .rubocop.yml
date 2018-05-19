@@ -1,0 +1,26 @@
+AllCops:
+  TargetRubyVersion: 2.5
+
+Metrics:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+  
+Style/NumericPredicate:
+  EnforcedStyle: comparison
+
+Style/RescueStandardError:
+  EnforcedStyle: implicit
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/WordArray:
+  EnforcedStyle: brackets
