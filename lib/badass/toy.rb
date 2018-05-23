@@ -16,18 +16,26 @@ class BadASS::Toy
     @images = toy_hash['images'].map { |toy| toy['fullFilename'] }
   end
 
+  # Gets the full product name of the toy.
+  # @return [String]
   def name
     BadASS::BAD_DRAGON_SKUS[@sku]
   end
 
+  # Checks if a toy has a cumtube or not.
+  # @return [Boolean]
   def cumtube?
     @cumtube == 1
   end
 
+  # Checks if a toy has a suction cup or not.
+  # @return [Boolean]
   def suction_cup?
     @suction_cup == 1
   end
 
+  # Gets the firmness of a toy.
+  # @return [String]
   def firmness
     BadASS::FIRMNESSES[@firmness]
   end
