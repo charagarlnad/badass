@@ -12,11 +12,27 @@ module BadASS
   BAD_DRAGON_SKUS = JSON.parse(Net::HTTP.get(URI('https://bad-dragon.com/api/inventory-toy/product-list'))).map { |toy| { toy['sku'] => toy['name'] } }.reduce({}, :update)
 
   # Get the current sales on the site.
-  # @return [Hash{String => BadASS::Sale}]
+  # @return [Array<BadASS::Sale>]
   def self.sales
     JSON.parse(Net::HTTP.get(URI('https://bad-dragon.com/api/sales'))).map do |sale|
       BadASS::Sale.new(sale)
     end
+  end
+
+  # Get the current drops on the site.
+  # @return [Array<BadASS::Toy>]
+  def self.drops
+    page = 1
+    toy_list = []
+    loop do
+      newtoys = JSON.parse(Net::HTTP.get(URI("https://bad-dragon.com/api/inventory-toys?price[min]=0&price[max]=300&noAccessories=false&cumtube=false&suctionCup=false&sort[field]=price&&sort[direction]=asc&page=#{page}&limit=60")))
+      page += 1
+      newtoys['toys'].each do |toy|
+        toy_list << BadASS::Toy.new(toy)
+      end
+      break if page > newtoys['totalPages']
+    end
+    toy_list
   end
 end
 
