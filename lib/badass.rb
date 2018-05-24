@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 require 'date'
-
+# @todo Add rspec testing.
 # Contains a few constants used across BD's site, and a few helper methods.
 module BadASS
   # A hash of API mappings of number to firmness.
