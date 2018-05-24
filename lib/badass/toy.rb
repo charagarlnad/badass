@@ -1,5 +1,7 @@
+# Base class containing a Bad Dragon toy and it's attributes.
 class BadASS::Toy
   # Create a Toy object using a hash from the API.
+  # @param [Hash]
   def initialize(toy_hash)
     @id = toy_hash['id']
     @sku = toy_hash['sku']
@@ -40,14 +42,24 @@ class BadASS::Toy
     BadASS::FIRMNESSES[@firmness]
   end
 
+  # @return [Integer] the ID of the toy
   attr_reader :id
+  # @return [String] the SKU of the toy
   attr_reader :sku
+  # @return [String] the size of the toy
   attr_reader :size
+  # @return [Integer] the price of the toy
   attr_reader :price
+  # @return [Float] the weight of the toy
   attr_reader :weight
+  # @return [String] the color of the toy
   attr_reader :color
+  # @return [Array(Integer, Integer, Integer)] the 3 colors of the toy
   attr_reader :colors
+  # @return [String] the flop reason of a toy
   attr_reader :flop_reason
+  # @return [String] the type of a toy
   attr_reader :type
+  # @return [Array] the image URLs of a toy
   attr_reader :images
 end
