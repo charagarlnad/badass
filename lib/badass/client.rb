@@ -4,8 +4,8 @@ class BadASS::Client
   # @param refresh_rate [Integer] the rate at which the Client should refresh its list of toys.
   def initialize(refresh_rate: 600)
     Thread.new do
-      @toys = BadASS.drops
-      @sale = BadASS.sales
+      @drops = BadASS.drops
+      @sales = BadASS.sales
       sleep(refresh_rate)
     end
   end

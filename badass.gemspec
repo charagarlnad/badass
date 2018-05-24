@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'badass'
-  s.version     = '0.0.5'.freeze
+  s.version     = '0.0.6'.freeze
   s.date        = '2018-05-23'
   s.summary     = 'Bad Dragon API for Ruby'
   s.description = 'A simple Bad Dragon Assistant Gem.'
